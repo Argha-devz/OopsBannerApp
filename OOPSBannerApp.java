@@ -8,47 +8,52 @@
  */
 public class OOPSBannerApp {
 
-    // Static method for O
-    public static String[] buildO() {
-        return new String[]{
-                " *** ",
-                "*   *",
-                "*   *",
-                "*   *",
-                " *** "
-        };
-    }
+    static class CharacterPattern {
+        char character;
+        String[] pattern;
 
-    // Static method for P
-    public static String[] buildP() {
-        return new String[]{
-                "**** ",
-                "*   *",
-                "**** ",
-                "*    ",
-                "*    "
-        };
-    }
+        CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
 
-    // Static method for S
-    public static String[] buildS() {
-        return new String[]{
-                " ****",
-                "*    ",
-                " *** ",
-                "    *",
-                "**** "
-        };
+        public String[] getPattern() {
+            return pattern;
+        }
     }
 
     public static void main(String[] args) {
 
-        String[] O = buildO();
-        String[] P = buildP();
-        String[] S = buildS();
+        CharacterPattern O = new CharacterPattern('O', new String[]{
+            " *** ",
+            "*   *",
+            "*   *",
+            "*   *",
+            " *** "
+        });
 
-        for (int i = 0; i < O.length; i++) {
-            System.out.println(O[i] + "   " + P[i] + "   " + S[i]);
+        CharacterPattern P = new CharacterPattern('P', new String[]{
+            "**** ",
+            "*   *",
+            "**** ",
+            "*    ",
+            "*    "
+        });
+
+        CharacterPattern S = new CharacterPattern('S', new String[]{
+            " ****",
+            "*    ",
+            " *** ",
+            "    *",
+            "**** "
+        });
+
+        String[] o = O.getPattern();
+        String[] p = P.getPattern();
+        String[] s = S.getPattern();
+
+        for (int i = 0; i < o.length; i++) {
+            System.out.println(o[i] + "   " + o[i] + "   " + p[i] + "   " + s[i]);
         }
     }
 }
